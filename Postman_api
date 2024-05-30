@@ -60,3 +60,44 @@ pm.sendRequest({
         console.log('Response:', res);
     }
 });
+
+for pre:
+// Check if the current token is still valid or if it needs refresh
+if (!pm.environment.get('token_expiry') || new Date() > new Date(pm.environment.get('token_expiry'))) {
+    const url = 'https://example.com/api/token';
+    const clientId = 'YOUR_CLIENT_ID';
+    const clientSecret = 'YOUR_CLIENT_SECRET';
+
+    // Asynchronously request a new token
+    pm.sendRequest({
+        url: url,
+        method: 'POST',
+        header: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: {
+            mode: 'urlencoded',
+            urlencoded: [
+                {key: "grant_type", value: "client_credentials"},
+                {key: "client_id", value: clientId},
+                {key: "client_secret", value: clientSecret}
+            ]
+        }
+    }, function (err, res) {
+        if (err) {
+            console.log('Token generation failed:', err);
+        } else {
+            const jsonResponse = res.json();
+            pm.environment.set('access_token', jsonResponse.access_token);
+            let expiryDate = new Date();
+            expiryDate.setSeconds(expiryDate.getSeconds() + jsonResponse.expires_in);
+            pm.environment.set('token_expiry', expiryDate.toString());
+        }
+    });
+}
+
+// Always attach the valid token to the request
+pm.request.headers.add({
+    key: 'Authorization',
+    value: 'Bearer ' + pm.environment.get('access_token')
+});
