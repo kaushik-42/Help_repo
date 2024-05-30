@@ -1,0 +1,39 @@
+javascript
+Copy code
+// Check if the response indicates an expired token
+if (pm.response.code === 401 && pm.response.json().message === 'Token expired') {
+    const url = 'https://example.com/api/token';
+    const clientId = 'YOUR_CLIENT_ID';
+    const clientSecret = 'YOUR_CLIENT_SECRET';
+
+    // Request a new token
+    pm.sendRequest({
+        url: url,
+        method: 'POST',
+        header: 'Content-Type:application/x-www-form-urlencoded',
+        body: {
+            mode: 'urlencoded',
+            urlencoded: [
+                {key: "grant_type", value: "client_credentials"},
+                {key: "client_id", value: clientId},
+                {key: "client_secret", value: clientSecret}
+            ]
+        }
+    }, function (err, res) {
+        if (err) {
+            console.log('Token generation failed:', err);
+        } else {
+            const jsonResponse = res.json();
+            pm.environment.set('access_token', jsonResponse.access_token);
+            // Optionally recalculate and store the token's expiration time
+            let expiryDate = new Date();
+            expiryDate.setSeconds(expiryDate.getSeconds() + jsonResponse.expires_in);
+            pm.environment.set('token_expiry', expiryDate.toString());
+
+            // Optionally, you can rerun the request that failed due to token expiration
+            pm.sendRequest(pm.request, function (err, res) {
+                // Handle the response from the retried request
+            });
+        }
+    });
+}
