@@ -1,0 +1,67 @@
+To automate fetching application insights data from Azure and present it in a Streamlit dashboard or another type of visualization, you can follow these general steps:
+
+Set Up Azure SDK: First, you'll need to set up Azure SDK for Python in your development environment. This includes installing necessary packages and configuring authentication to interact with Azure resources.
+
+Authenticate with Azure: Utilize Azure Identity client library to authenticate against Azure. This involves setting up a service principal or using managed identity if running in Azure, which allows your application to access resources.
+
+Fetch Data from Application Insights: Use the Azure Monitor Query client library to execute queries against Application Insights. You'll construct Kusto Query Language (KQL) queries to fetch the required data based on filters like date ranges.
+
+Data Processing: Process the data retrieved from Application Insights to format it according to your needs (e.g., aggregating transactions by client name and API version).
+
+Integration with Streamlit: Develop a Streamlit application to display the processed data. This involves designing the UI and setting up interactive elements if needed.
+
+Automation: Automate the process by scripting the data fetching and processing steps to run on a schedule or trigger.
+
+Step-by-Step Implementation
+1. Install Required Libraries
+You can install these libraries via pip in your VS Code terminal:
+
+bash
+Copy code
+pip install azure-identity azure-monitor-query streamlit
+2. Authenticate and Fetch Data
+Here's a Python script example to authenticate and query Application Insights:
+
+python
+Copy code
+from azure.identity import DefaultAzureCredential
+from azure.monitor.query import LogsQueryClient, LogsQueryStatus
+import pandas as pd
+
+credential = DefaultAzureCredential()
+
+client = LogsQueryClient(credential)
+
+# Adjust the timespan to your needs
+timespan = "2023-04-01/2023-04-30"
+
+# Sample KQL query, customize it based on your specific data structure
+kql = """
+AppRequests
+| where TimeGenerated >= datetime(2023-04-01) and TimeGenerated < datetime(2023-05-01)
+| summarize Count=count() by Client_Name, Api_Version
+| extend Percentage = round(100.0 * Count / sum(Count) over(), 1)
+"""
+
+response = client.query_workspace('your-workspace-id', kql, timespan)
+
+if response.status == LogsQueryStatus.SUCCESS:
+    df = pd.DataFrame([dict(row) for row in response.tables[0].rows], columns=[col.name for col in response.tables[0].columns])
+    print(df)
+else:
+    print("Query failed:", response.partial_error)
+
+3. Streamlit Dashboard
+Set up a simple Streamlit dashboard:
+
+python
+Copy code
+import streamlit as st
+
+# Assuming 'df' is the DataFrame obtained from the query
+st.title('API Transactions Insights')
+st.dataframe(df)  # Display the DataFrame as a table in Streamlit
+Run your Streamlit app by typing streamlit run your_script.py in your terminal.
+
+4. Automation
+Consider automating this script to run periodically using cron jobs or workflow automation tools like GitHub Actions, depending on where the code resides.
