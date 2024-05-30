@@ -101,3 +101,54 @@ pm.request.headers.add({
     key: 'Authorization',
     value: 'Bearer ' + pm.environment.get('access_token')
 });
+
+Request:
+ 
+Coming into this!
+ 
+POST https://otiagateway-dev.internal.cvshealth.com/data-extraction-function-high-v3/dataextractionupload?clientName=cvs-rxregaudit&convertPdftoImage=true&customVisionProjectName=all
+401
+78 ms
+Network
+Request Headers
+Authorization: Bearer undefined
+Content-Type: application/x-www-form-urlencoded
+User-Agent: PostmanRuntime/7.39.0
+Accept: */*
+Postman-Token: db69bb05-e1cb-417d-aaa4-639efda3132f
+Host: otiagateway-dev.internal.cvshealth.com
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 131
+Request Body
+Response Headers
+Content-Length: 152
+Content-Type: application/json
+Request-Context: appId=cid-v1:d5cfc48c-062d-4341-aca1-992a2c2d50b8
+WWW-Authenticate: AzureApiManagementKey realm="https://otiagateway-dev.internal.cvshealth.com/data-extraction-function-high-v3",name="Ocp-Apim-Subscription-Key",type="header"
+Date: Thu, 30 May 2024 21:32:55 GMT
+Response Body
+ 
+POST https://otiagateway-dev.internal.cvshealth.com/data-extraction-function-high-v3/dataextractionupload?clientName=cvs-rxregaudit&convertPdftoImage=true&customVisionProjectName=all
+401
+82 ms
+Network
+Request Headers
+Ocp-Apim-Subscription-Key: fa557d1ef73640c288850dfe84ce8ff3
+Authorization: Bearer undefined
+User-Agent: PostmanRuntime/7.39.0
+Accept: */*
+Postman-Token: a9e2057e-5992-401f-b59e-eee33864ef05
+Host: otiagateway-dev.internal.cvshealth.com
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Type: multipart/form-data; boundary=--------------------------956899008717445661689182
+Content-Length: 34393
+Request Body
+Response Headers
+Content-Length: 48
+Content-Type: application/json
+Request-Context: appId=cid-v1:d5cfc48c-062d-4341-aca1-992a2c2d50b8
+Date: Thu, 30 May 2024 21:32:55 GMT
+Response Body
+{ "statusCode": 401, "message": "Invalid JWT." }
