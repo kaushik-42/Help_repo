@@ -106,49 +106,39 @@ Request:
  
 Coming into this!
  
-POST https://otiagateway-dev.internal.cvshealth.com/data-extraction-function-high-v3/dataextractionupload?clientName=cvs-rxregaudit&convertPdftoImage=true&customVisionProjectName=all
-401
-78 ms
+Token is not defined. Please check the token generation script
+ 
+GET https://login.microsoftonline.com/fabb61b8-3afe-4e75-b934-a47f782b8cd7/oauth2/v2.0/token
+400
+96 ms
 Network
 Request Headers
 Authorization: Bearer undefined
 Content-Type: application/x-www-form-urlencoded
 User-Agent: PostmanRuntime/7.39.0
 Accept: */*
-Postman-Token: db69bb05-e1cb-417d-aaa4-639efda3132f
-Host: otiagateway-dev.internal.cvshealth.com
+Postman-Token: d76c1862-8fee-4d1b-9674-9a26a6033c71
+Host: login.microsoftonline.com
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 Content-Length: 131
+Cookie: fpc=Apu-UncsCf9Fqg9GvrOdzWhk52fsBAAAAH3p6t0OAAAA; stsservicecookie=estsfd; x-ms-gateway-slice=estsfd
 Request Body
 Response Headers
-Content-Length: 152
-Content-Type: application/json
-Request-Context: appId=cid-v1:d5cfc48c-062d-4341-aca1-992a2c2d50b8
-WWW-Authenticate: AzureApiManagementKey realm="https://otiagateway-dev.internal.cvshealth.com/data-extraction-function-high-v3",name="Ocp-Apim-Subscription-Key",type="header"
-Date: Thu, 30 May 2024 21:32:55 GMT
+Cache-Control: no-store, no-cache
+Pragma: no-cache
+Content-Type: application/json; charset=utf-8
+Expires: -1
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Content-Type-Options: nosniff
+P3P: CP="DSP CUR OTPi IND OTRi ONL FIN"
+x-ms-request-id: 864da235-9dde-4d19-99c3-5f7066511901
+x-ms-ests-server: 2.1.18105.6 - SCUS ProdSlices
+x-ms-srs: 1.P
+X-XSS-Protection: 0
+Set-Cookie: fpc=Apu-UncsCf9Fqg9GvrOdzWhk52fsBAAAAH3p6t0OAAAA; expires=Sat, 29-Jun-2024 21:46:42 GMT; path=/; secure; HttpOnly; SameSite=None
+Set-Cookie: x-ms-gateway-slice=estsfd; path=/; secure; samesite=none; httponly
+Date: Thu, 30 May 2024 21:46:42 GMT
+Content-Length: 554
 Response Body
- 
-POST https://otiagateway-dev.internal.cvshealth.com/data-extraction-function-high-v3/dataextractionupload?clientName=cvs-rxregaudit&convertPdftoImage=true&customVisionProjectName=all
-401
-82 ms
-Network
-Request Headers
-Ocp-Apim-Subscription-Key: fa557d1ef73640c288850dfe84ce8ff3
-Authorization: Bearer undefined
-User-Agent: PostmanRuntime/7.39.0
-Accept: */*
-Postman-Token: a9e2057e-5992-401f-b59e-eee33864ef05
-Host: otiagateway-dev.internal.cvshealth.com
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Content-Type: multipart/form-data; boundary=--------------------------956899008717445661689182
-Content-Length: 34393
-Request Body
-Response Headers
-Content-Length: 48
-Content-Type: application/json
-Request-Context: appId=cid-v1:d5cfc48c-062d-4341-aca1-992a2c2d50b8
-Date: Thu, 30 May 2024 21:32:55 GMT
-Response Body
-{ "statusCode": 401, "message": "Invalid JWT." }
+{"error":"invalid_request","error_description":"AADSTS90014: The required field 'scope' is missing from the credential. Ensure that you have all the necessary parameters for the login request. Trace ID: 864da235-9dde-4d19-99c3-5f7066511901 Correlation ID: e2c84a75-daca-4d28-8cd8-779628019f50 Timestamp: 2024-05-30 21:46:42Z","error_codes":[90014],"timestamp":"2024-05-30 21:46:42Z","trace_id":"864da235-9dde-4d19-99c3-5f7066511901","correlation_id":"e2c84a75-daca-4d28-8cd8-779628019f50","error_uri":"https://login.microsoftonline.com/error?code=90014"}
