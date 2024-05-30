@@ -37,3 +37,26 @@ if (pm.response.code === 401 && pm.response.json().message === 'Token expired') 
         }
     });
 }
+
+
+pm.sendRequest({
+    url: 'https://api.yourservice.com/endpoint', // Replace with the actual endpoint
+    method: 'GET', // or 'POST', 'PUT', etc., depending on the operation
+    header: {
+        'Authorization': 'Bearer ' + pm.environment.get('access_token'), // Retrieving the access token from environment variables
+        'Content-Type': 'application/json' // Assuming JSON data format; change as needed
+    },
+    body: {
+        mode: 'raw',
+        raw: JSON.stringify({
+            // Your JSON body here
+        })
+    }
+}, function (err, res) {
+    // Callback function to handle the response
+    if (err) {
+        console.log('Request failed:', err);
+    } else {
+        console.log('Response:', res);
+    }
+});
