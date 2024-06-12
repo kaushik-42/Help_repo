@@ -16,6 +16,7 @@ ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. If you
         Expected sha256 ba0d021a166865d2265246961bec0152ff124de910c5cc39f1156ce3fa7c69dc
              Got        19f68cf0bd1335e7904632ec0d2220b04b428efb3ff413e5753bdaf0edbbabd6
 
+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
 
 import openai
 import pytesseract
