@@ -30,27 +30,56 @@ FileNotFoundError: [Errno 2] No such file or directory: 'pdfinfo'
 
 During handling of the above exception, another exception occurred:
 
-Traceback (most recent call last):
-  File "/Users/a847848/Desktop/Experimemts_AIHUB/hello_world.py", line 54, in <module>
-    result = main(API_KEY, PDF_PATH)
-  File "/Users/a847848/Desktop/Experimemts_AIHUB/hello_world.py", line 44, in main
-    document_content = extract_text_from_pdf(pdf_path)
-  File "/Users/a847848/Desktop/Experimemts_AIHUB/hello_world.py", line 8, in extract_text_from_pdf
-    pages = convert_from_path(pdf_path)
-  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pdf2image/pdf2image.py", line 127, in convert_from_path
-    page_count = pdfinfo_from_path(
-  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pdf2image/pdf2image.py", line 607, in pdfinfo_from_path
-    raise PDFInfoNotInstalledError(
-pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+
+
+
 (.venv) a847848@MACH9XRKY9W9F Experimemts_AIHUB % python3 hello_world.py
 Traceback (most recent call last):
-  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pdf2image/pdf2image.py", line 581, in pdfinfo_from_path
-    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
-  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 951, in __init__
-    self._execute_child(args, executable, preexec_fn, close_fds,
-  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 1821, in _execute_child
-    raise child_exception_type(errno_num, err_msg, err_filename)
-FileNotFoundError: [Errno 2] No such file or directory: 'pdfinfo'
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/hello_world.py", line 57, in <module>
+    result = main(API_KEY, PDF_PATH)
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/hello_world.py", line 45, in main
+    document_content = extract_text_from_pdf(pdf_path)
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/hello_world.py", line 12, in extract_text_from_pdf
+    text += pytesseract.image_to_string(page)
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 423, in image_to_string
+    return {
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 426, in <lambda>
+    Output.STRING: lambda: run_and_get_output(*args),
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 277, in run_and_get_output
+    with save(image) as (temp_name, input_filename):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 117, in __enter__
+    return next(self.gen)
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 197, in save
+    image, extension = prepare(image)
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 174, in prepare
+    raise TypeError('Unsupported image object')
+TypeError: Unsupported image object
+(.venv) a847848@MACH9XRKY9W9F Experimemts_AIHUB % python3 hello_world.py
+page 0 of 7ddb89fb-97ec-4826-91ff-c3a40657ff4d.pdf
+Traceback (most recent call last):
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/hello_world.py", line 58, in <module>
+    result = main(API_KEY, PDF_PATH)
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/hello_world.py", line 46, in main
+    document_content = extract_text_from_pdf(pdf_path)
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/hello_world.py", line 13, in extract_text_from_pdf
+    text += pytesseract.image_to_string(page)
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 423, in image_to_string
+    return {
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 426, in <lambda>
+    Output.STRING: lambda: run_and_get_output(*args),
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 277, in run_and_get_output
+    with save(image) as (temp_name, input_filename):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 117, in __enter__
+    return next(self.gen)
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 197, in save
+    image, extension = prepare(image)
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 174, in prepare
+    raise TypeError('Unsupported image object')
+TypeError: Unsupported image object
+
+
+
+
 
 During handling of the above exception, another exception occurred:
 
