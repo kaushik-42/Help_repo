@@ -11,9 +11,25 @@ ERROR: No matching distribution found for openai
 Could not fetch URL https://pypi.org/simple/pip/: There was a problem confirming the ssl certificate: HTTPSConnectionPool(host='pypi.org', port=443): Max retries exceeded with url: /simple/pip/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)'))) - skipping
 (gpt_env) a847848@MACH9XRKY9W9F Experimentation % 
 
-Running cells with 'Python 3.9.6' requires the ipykernel package.
-Run the following command to install 'ipykernel' into the Python environment. 
-Command: '/usr/bin/python3 -m pip install ipykernel -U --user --force-reinstall'
+(gpt_env) a847848@MACH9XRKY9W9F Experimentation % pip install --upgrade pip
+WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)'))': /simple/pip/
+WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)'))': /simple/pip/
+WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)'))': /simple/pip/
+WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)'))': /simple/pip/
+^[[A^[[A^[[A^[[AWARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)'))': /simple/pip/
+Could not fetch URL https://pypi.org/simple/pip/: There was a problem confirming the ssl certificate: HTTPSConnectionPool(host='pypi.org', port=443): Max retries exceeded with url: /simple/pip/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)'))) - skipping
+Requirement already up-to-date: pip in ./gpt_env/lib/python3.8/site-packages (19.2.3)
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+(gpt_env) a847848@MACH9XRKY9W9F Experimentation % pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --up
+grade pip
+Collecting pip
+  ERROR: HTTP error 403 while getting https://files.pythonhosted.org/packages/8a/6a/19e9fe04fca059ccf770861c7d5721ab4c2aebc539889e97c7977528a53b/pip-24.0-py3-none-any.whl#sha256=ba0d021a166865d2265246961bec0152ff124de910c5cc39f1156ce3fa7c69dc (from https://pypi.org/simple/pip/) (requires-python:>=3.7)
+  ERROR: Could not install requirement pip from https://files.pythonhosted.org/packages/8a/6a/19e9fe04fca059ccf770861c7d5721ab4c2aebc539889e97c7977528a53b/pip-24.0-py3-none-any.whl#sha256=ba0d021a166865d2265246961bec0152ff124de910c5cc39f1156ce3fa7c69dc because of error 403 Client Error: Forbidden for url: https://files.pythonhosted.org/packages/8a/6a/19e9fe04fca059ccf770861c7d5721ab4c2aebc539889e97c7977528a53b/pip-24.0-py3-none-any.whl
+ERROR: Could not install requirement pip from https://files.pythonhosted.org/packages/8a/6a/19e9fe04fca059ccf770861c7d5721ab4c2aebc539889e97c7977528a53b/pip-24.0-py3-none-any.whl#sha256=ba0d021a166865d2265246961bec0152ff124de910c5cc39f1156ce3fa7c69dc because of HTTP error 403 Client Error: Forbidden for url: https://files.pythonhosted.org/packages/8a/6a/19e9fe04fca059ccf770861c7d5721ab4c2aebc539889e97c7977528a53b/pip-24.0-py3-none-any.whl for URL https://files.pythonhosted.org/packages/8a/6a/19e9fe04fca059ccf770861c7d5721ab4c2aebc539889e97c7977528a53b/pip-24.0-py3-none-any.whl#sha256=ba0d021a166865d2265246961bec0152ff124de910c5cc39f1156ce3fa7c69dc (from https://pypi.org/simple/pip/) (requires-python:>=3.7)
+WARNING: You are using pip version 19.2.3, however version 24.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+(gpt_env) a847848@MACH9XRKY9W9F Experimentation % 
 
 import openai
 import pytesseract
