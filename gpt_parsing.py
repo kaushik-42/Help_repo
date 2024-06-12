@@ -11,6 +11,10 @@ ERROR: No matching distribution found for openai
 Could not fetch URL https://pypi.org/simple/pip/: There was a problem confirming the ssl certificate: HTTPSConnectionPool(host='pypi.org', port=443): Max retries exceeded with url: /simple/pip/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1108)'))) - skipping
 (gpt_env) a847848@MACH9XRKY9W9F Experimentation % 
 
+Running cells with 'Python 3.9.6' requires the ipykernel package.
+Run the following command to install 'ipykernel' into the Python environment. 
+Command: '/usr/bin/python3 -m pip install ipykernel -U --user --force-reinstall'
+
 import openai
 import pytesseract
 from pdf2image import convert_from_path
