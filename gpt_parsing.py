@@ -18,26 +18,34 @@ ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. If you
 
 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
 
+(.venv) a847848@MACH9XRKY9W9F Experimemts_AIHUB % python3 hello_world.py                
+Traceback (most recent call last):
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 255, in run_tesseract
+    proc = subprocess.Popen(cmd_args, **subprocess_args())
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 1821, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'tesseract'
 
-pip install pymupdf pytesseract Pillow
-import fitz  # PyMuPDF
-import pytesseract
-import openai
-import json
-from PIL import Image
-import io
+During handling of the above exception, another exception occurred:
 
-# Function to extract text from PDF using PyMuPDF and pytesseract
-def extract_text_from_pdf(pdf_path):
-    document = fitz.open(pdf_path)
-    text = ""
-    for page_num in range(len(document)):
-        page = document.load_page(page_num)
-        pix = page.get_pixmap()
-        img = Image.open(io.BytesIO(pix.tobytes()))
-        text += pytesseract.image_to_string(img)
-    return text
-
+Traceback (most recent call last):
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/hello_world.py", line 61, in <module>
+    result = main(API_KEY, PDF_PATH)
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/hello_world.py", line 49, in main
+    document_content = extract_text_from_pdf(pdf_path)
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/hello_world.py", line 16, in extract_text_from_pdf
+    text += pytesseract.image_to_string(img)
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 423, in image_to_string
+    return {
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 426, in <lambda>
+    Output.STRING: lambda: run_and_get_output(*args),
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 288, in run_and_get_output
+    run_tesseract(**kwargs)
+  File "/Users/a847848/Desktop/Experimemts_AIHUB/.venv/lib/python3.9/site-packages/pytesseract/pytesseract.py", line 260, in run_tesseract
+    raise TesseractNotFoundError()
+pytesseract.pytesseract.TesseractNotFoundError: tesseract is not installed or it's not in your PATH. See README file for more information.
 
 
 
