@@ -1,3 +1,257 @@
+(.venv) a847848@MACH9XRKY9W9F Aplication_Insights % python3 exp1.py     
+/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Datetime with no tzinfo will be considered UTC.
+Datetime with no tzinfo will be considered UTC.
+DefaultAzureCredential failed to retrieve a token from the included credentials.
+Attempted credentials:
+        EnvironmentCredential: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
+Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
+        ManagedIdentityCredential: Unexpected content type "text/html"
+Content: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<!-- FileName: index.html
+     Language: [en]
+-->
+<!--Head-->
+<head>
+<!--
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+-->
+<meta content="text/html" http-equiv="Content-Type" />
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <title>McAfee Web Gateway - Notification</title>
+  <script src="/mwg-internal/de5fs23hu73ds/files/javascript/sw.js" type="text/javascript" ></script>
+ <script src="/mwg-internal/de5fs23hu73ds/files/default/geolocation.js" type="text/javascript" ></script>
+  <link rel="stylesheet" href="/mwg-internal/de5fs23hu73ds/files/default/stylesheet.css" />
+</head>
+<!--/Head-->
+<!--Body-->
+<body onload="swOnLoad();">
+  <table class='bodyTable'>
+    <tr>
+      <td class='bodyData' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_body.gif'>
+<!--Logo-->
+<table class='logoTable'>
+  <tr>
+    <td class='logoData' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_navbar.jpg'>
+        <img src='/mwg-internal/de5fs23hu73ds/files/default/img/CVS_Health_logo_h_reg_rgb_wht2.png' HEIGHT="25" WIDTH="209" BORDER="0" />
+    </td>
+  </tr>
+</table>
+<!--/Logo-->
+<!--Contents-->
+<!-- FileName: authenticationrequired.html
+     Language: [en]
+-->
+<!--Title-->
+<table class='titleTable' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_navbar.jpg'>
+  <tr>
+    <td class='titleData'>
+      Authentication Required
+    </td>
+  </tr>
+</table>
+<!--/Title-->
+
+<!--Content-->
+<table class="contentTable">
+  <tr>
+    <td class="contentData">
+      You must be authenticated to access this URL.
+    </td>
+  </tr>
+</table>
+    
+<script language="javascript" type="text/javascript">
+   urlprotocol = "http";
+   statuscode=302;
+
+   if(statuscode==401 && urlprotocol == "ftp"){
+      document.write("<form name=\"ftpform\" method=\"get\" action=\"\">");
+      document.write("<table class=\"contentData\">");
+ 
+To mitigate this issue, please refer to the troubleshooting guidelines here at https://aka.ms/azsdk/python/identity/defaultazurecredential/troubleshoot.
+Traceback (most recent call last):
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/monitor/query/_logs_query_client.py", line 135, in query_workspace
+    generated_response = self._query_op.execute(  # pylint: disable=protected-access
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/core/tracing/decorator.py", line 78, in wrapper_use_tracer
+    return func(*args, **kwargs)
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/monitor/query/_generated/operations/_operations.py", line 692, in execute
+    pipeline_response: PipelineResponse = self._client._pipeline.run(  # pylint: disable=protected-access
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/core/pipeline/_base.py", line 230, in run
+    return first_node.send(pipeline_request)
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/core/pipeline/_base.py", line 86, in send
+    response = self.next.send(request)
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/core/pipeline/_base.py", line 86, in send
+    response = self.next.send(request)
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/core/pipeline/_base.py", line 86, in send
+    response = self.next.send(request)
+  [Previous line repeated 2 more times]
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/core/pipeline/policies/_redirect.py", line 197, in send
+    response = self.next.send(request)
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/core/pipeline/policies/_retry.py", line 531, in send
+    response = self.next.send(request)
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/core/pipeline/policies/_authentication.py", line 124, in send
+    self.on_request(request)
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/core/pipeline/policies/_authentication.py", line 99, in on_request
+    self._token = self._credential.get_token(*self._scopes)
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/identity/_credentials/default.py", line 225, in get_token
+    token = super().get_token(*scopes, claims=claims, tenant_id=tenant_id, **kwargs)
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/identity/_credentials/chained.py", line 124, in get_token
+    raise ClientAuthenticationError(message=message)
+azure.core.exceptions.ClientAuthenticationError: DefaultAzureCredential failed to retrieve a token from the included credentials.
+Attempted credentials:
+        EnvironmentCredential: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
+Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
+        ManagedIdentityCredential: Unexpected content type "text/html"
+Content: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<!-- FileName: index.html
+     Language: [en]
+-->
+<!--Head-->
+<head>
+<!--
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+-->
+<meta content="text/html" http-equiv="Content-Type" />
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <title>McAfee Web Gateway - Notification</title>
+  <script src="/mwg-internal/de5fs23hu73ds/files/javascript/sw.js" type="text/javascript" ></script>
+ <script src="/mwg-internal/de5fs23hu73ds/files/default/geolocation.js" type="text/javascript" ></script>
+  <link rel="stylesheet" href="/mwg-internal/de5fs23hu73ds/files/default/stylesheet.css" />
+</head>
+<!--/Head-->
+<!--Body-->
+<body onload="swOnLoad();">
+  <table class='bodyTable'>
+    <tr>
+      <td class='bodyData' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_body.gif'>
+<!--Logo-->
+<table class='logoTable'>
+  <tr>
+    <td class='logoData' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_navbar.jpg'>
+        <img src='/mwg-internal/de5fs23hu73ds/files/default/img/CVS_Health_logo_h_reg_rgb_wht2.png' HEIGHT="25" WIDTH="209" BORDER="0" />
+    </td>
+  </tr>
+</table>
+<!--/Logo-->
+<!--Contents-->
+<!-- FileName: authenticationrequired.html
+     Language: [en]
+-->
+<!--Title-->
+<table class='titleTable' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_navbar.jpg'>
+  <tr>
+    <td class='titleData'>
+      Authentication Required
+    </td>
+  </tr>
+</table>
+<!--/Title-->
+
+<!--Content-->
+<table class="contentTable">
+  <tr>
+    <td class="contentData">
+      You must be authenticated to access this URL.
+    </td>
+  </tr>
+</table>
+    
+<script language="javascript" type="text/javascript">
+   urlprotocol = "http";
+   statuscode=302;
+
+   if(statuscode==401 && urlprotocol == "ftp"){
+      document.write("<form name=\"ftpform\" method=\"get\" action=\"\">");
+      document.write("<table class=\"contentData\">");
+ 
+To mitigate this issue, please refer to the troubleshooting guidelines here at https://aka.ms/azsdk/python/identity/defaultazurecredential/troubleshoot.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/Aplication_Insights/exp1.py", line 27, in <module>
+    response = client.query_workspace(
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/core/tracing/decorator.py", line 78, in wrapper_use_tracer
+    return func(*args, **kwargs)
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/monitor/query/_logs_query_client.py", line 139, in query_workspace
+    process_error(err, LogsQueryError)
+  File "/Users/a847848/Desktop/Python_Dev_AIHUB/.venv/lib/python3.9/site-packages/azure/monitor/query/_helpers.py", line 157, in process_error
+    raise HttpResponseError(message=error.message, response=error.response, model=model)
+azure.core.exceptions.HttpResponseError: DefaultAzureCredential failed to retrieve a token from the included credentials.
+Attempted credentials:
+        EnvironmentCredential: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
+Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
+        ManagedIdentityCredential: Unexpected content type "text/html"
+Content: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<!-- FileName: index.html
+     Language: [en]
+-->
+<!--Head-->
+<head>
+<!--
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+-->
+<meta content="text/html" http-equiv="Content-Type" />
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <title>McAfee Web Gateway - Notification</title>
+  <script src="/mwg-internal/de5fs23hu73ds/files/javascript/sw.js" type="text/javascript" ></script>
+ <script src="/mwg-internal/de5fs23hu73ds/files/default/geolocation.js" type="text/javascript" ></script>
+  <link rel="stylesheet" href="/mwg-internal/de5fs23hu73ds/files/default/stylesheet.css" />
+</head>
+<!--/Head-->
+<!--Body-->
+<body onload="swOnLoad();">
+  <table class='bodyTable'>
+    <tr>
+      <td class='bodyData' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_body.gif'>
+<!--Logo-->
+<table class='logoTable'>
+  <tr>
+    <td class='logoData' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_navbar.jpg'>
+        <img src='/mwg-internal/de5fs23hu73ds/files/default/img/CVS_Health_logo_h_reg_rgb_wht2.png' HEIGHT="25" WIDTH="209" BORDER="0" />
+    </td>
+  </tr>
+</table>
+<!--/Logo-->
+<!--Contents-->
+<!-- FileName: authenticationrequired.html
+     Language: [en]
+-->
+<!--Title-->
+<table class='titleTable' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_navbar.jpg'>
+  <tr>
+    <td class='titleData'>
+      Authentication Required
+    </td>
+  </tr>
+</table>
+<!--/Title-->
+
+<!--Content-->
+<table class="contentTable">
+  <tr>
+    <td class="contentData">
+      You must be authenticated to access this URL.
+    </td>
+  </tr>
+</table>
+    
+<script language="javascript" type="text/javascript">
+   urlprotocol = "http";
+   statuscode=302;
+
+   if(statuscode==401 && urlprotocol == "ftp"){
+      document.write("<form name=\"ftpform\" method=\"get\" action=\"\">");
+      document.write("<table class=\"contentData\">");
+ 
+To mitigate this issue, please refer to the troubleshooting guidelines here at https://aka.ms/azsdk/python/identity/defaultazurecredential/troubleshoot.
+
+
 from azure.identity import DefaultAzureCredential
 from azure.monitor.query import LogsQueryClient
 from datetime import datetime
