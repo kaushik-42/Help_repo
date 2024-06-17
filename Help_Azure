@@ -1,3 +1,48 @@
+from azure.identity import DefaultAzureCredential
+from azure.monitor.query import LogsQueryClient
+from datetime import datetime
+
+# Initialize the client
+credential = DefaultAzureCredential()
+client = LogsQueryClient(credential)
+
+# Define your Application Insights workspace ID
+workspace_id = "YOUR_WORKSPACE_ID"
+
+# Define the Kusto query to get the request count, including a filter for the subscription name
+subscription_name = "YOUR_SUBSCRIPTION_NAME"
+query = f"""
+requests
+| where timestamp >= datetime(2024-05-01) and timestamp < datetime(2024-06-01)
+| where client_SubscriptionName == '{subscription_name}'
+| summarize total_requests = count()
+"""
+
+# Define the time range for the query
+start_time = datetime(2024, 5, 1)
+end_time = datetime(2024, 5, 31)
+
+# Execute the query
+response = client.query_workspace(
+    workspace_id=workspace_id,
+    query=query,
+    timespan=(start_time, end_time)
+)
+
+# Extract and print the request count
+if response.status == 'Success':
+    for table in response.tables:
+        for row in table.rows:
+            print(f"Total Requests: {row[0]}")
+else:
+    print(f"Query failed with status: {response.status}")
+
+
+
+
+
+-----------
+
 To automate fetching application insights data from Azure and present it in a Streamlit dashboard or another type of visualization, you can follow these general steps:
 
 Set Up Azure SDK: First, you'll need to set up Azure SDK for Python in your development environment. This includes installing necessary packages and configuring authentication to interact with Azure resources.
