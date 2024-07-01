@@ -11,6 +11,16 @@ sheet = wb.active
 # Define the RGB color code for yellow
 yellow_rgb = 'FFFF00'
 
+# Find the column letter based on the column name in the header row
+column_letter = None
+for cell in sheet[1]:  # Assuming the first row contains the column headers
+    if cell.value == column_name:
+        column_letter = cell.column_letter
+        break
+
+if not column_letter:
+    raise ValueError(f"Column '{column_name}' not found in the header row.")
+
 highlighted_rows = []
 
 # Iterate through the rows in the specified column
