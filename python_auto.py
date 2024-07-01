@@ -26,8 +26,13 @@ highlighted_rows = []
 # Iterate through the rows in the specified column
 for row in range(1, sheet.max_row + 1):
     cell = sheet[f"{column_letter}{row}"]
-    if cell.fill and cell.fill.fgColor and cell.fill.fgColor.rgb == yellow_rgb:
-        highlighted_rows.append(row)
+    fill = cell.fill
+    if fill and fill.start_color:
+        fg_color = fill.start_color
+        if fg_color.type == 'rgb' and fg_color.rgb == yellow_rgb:
+            highlighted_rows.append(row)
+        elif fg_color.type == 'indexed' and fg_color.index == 5:  # Yellow index
+            highlighted_rows.append(row)
 
 # Print or process the highlighted rows
 print("Rows with yellow highlights in column", column_letter, ":", highlighted_rows)
