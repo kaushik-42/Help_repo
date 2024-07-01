@@ -38,3 +38,12 @@ for line in lines:
         writer.addPage(reader.getPage(page_no - 1))  # Page numbers are 0-indexed in PyPDF2
 
         # Save the extracted page to the output folder
+        # Save the extracted page to the output folder
+        output_file_path = os.path.join(output_folder, file_name + '.pdf')
+        with open(output_file_path, 'wb') as output_file:
+            writer.write(output_file)
+
+        print(f"Extracted page {page_no} from {pdf_file_path} to {output_file_path}")
+
+print("Extraction complete.")
+
