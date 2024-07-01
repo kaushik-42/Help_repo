@@ -36,3 +36,18 @@ for row in range(1, sheet.max_row + 1):
 
 # Print or process the highlighted rows
 print("Rows with yellow highlights in column", column_letter, ":", highlighted_rows)
+
+
+# Read the .dat file and extract FILE_NO values
+file_no_values = []
+with open(dat_file_path, 'r') as file:
+    for line in file:
+        parts = line.strip().split()
+        if len(parts) >= 3 and parts[2].startswith("FILE_NO"):
+            file_no_values.append(parts[2])
+
+# Find the matching values
+matching_values = [value for value in highlighted_values if value in file_no_values]
+
+# Print the matching values
+print("Matching values:", matching_values)
