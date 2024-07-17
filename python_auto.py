@@ -51,3 +51,27 @@ matching_values = [value for value in highlighted_values if value in file_no_val
 
 # Print the matching values
 print("Matching values:", matching_values)
+
+
+
+
+
+# Define the file paths
+may_file_path = '/mnt/data/may_resources.txt'
+june_file_path = '/mnt/data/june_resources.txt'
+
+# Read the contents of the May resources file
+with open(may_file_path, 'r') as may_file:
+    may_resources = set(may_file.read().splitlines())
+
+# Read the contents of the June resources file
+with open(june_file_path, 'r') as june_file:
+    june_resources = set(june_file.read().splitlines())
+
+# Find resources that are in May but not in June
+missing_in_june = may_resources - june_resources
+
+# Print the missing resources
+print("Resources present in May but missing in June:")
+for resource in missing_in_june:
+    print(resource)
