@@ -84,3 +84,68 @@ print(f'The new document belongs to: {best_category} with a similarity score of 
 # Optionally, print all scores for each category
 for category, score in category_scores.items():
     print(f'Category: {category}, Similarity Score: {score:.2f}')
+
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
+
+# Load a pre-trained transformer model
+model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+
+# Example: 'new_document_text' in the form of a list of strings (OCR data)
+new_document_text = [
+    "1/26/23, 6:54 AM", 
+    "From: JLT CONSULTING", 
+    "Patient Name:", 
+    "Rheumatology Enrollment Form", 
+    "Medications", 
+    "Allergies", 
+    "Height", 
+    "Weight"
+]
+
+# Define the keywords for each category (example categories)
+categories = {
+    "Healthcare": ["Patient", "Enrollment", "Medications", "Height", "Weight", "Allergies", "Consulting"],
+    "Finance": ["Invoice", "Payment", "Due Date", "Amount", "Account", "Balance", "Transaction"],
+    "Technology": ["Server", "Cloud", "Deployment", "API", "Database", "Software", "Architecture"],
+    # Add more categories and their relevant keywords
+}
+
+# Function to calculate document similarity to each category
+def classify_document(new_document_text, categories):
+    # Convert the document (list of strings) to a single embedding for each chunk
+    document_embeddings = model.encode(new_document_text)
+    
+    # Dictionary to store category scores
+    category_scores = {}
+
+    # Loop over each category and calculate the similarity with the new document
+    for category, keywords in categories.items():
+        # Embed the keywords for the current category
+        keyword_embeddings = model.encode(keywords)
+        
+        # Calculate cosine similarity between document embeddings and category keywords
+        similarity_scores = cosine_similarity(keyword_embeddings, document_embeddings)
+        
+        # Calculate the average similarity for the current category
+        avg_similarity = np.mean(similarity_scores)
+        
+        # Store the score in the dictionary
+        category_scores[category] = avg_similarity
+
+    # Find the category with the highest similarity score
+    best_category = max(category_scores, key=category_scores.get)
+    best_score = category_scores[best_category]
+
+    return best_category, best_score, category_scores
+
+# Perform classification
+best_category, best_score, all_scores = classify_document(new_document_text, categories)
+
+# Output the classification results
+print(f'The document belongs to: {best_category} with a similarity score of {best_score:.2f}')
+
+# Optionally, print scores for all categories
+for category, score in all_scores.items():
+    print(f'Category: {category}, Similarity Score: {score:.2f}')
